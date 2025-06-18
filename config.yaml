@@ -1,0 +1,19 @@
+name: ForexFix
+description: ''
+nodes:
+- key: exchange_rate_fetcher
+  name: ExchangeRateFetcher
+  file_name: exchange_rate_fetcher.py
+  starting_node: true
+  schedule: null
+- key: currency_exchange_rates_email
+  name: CurrencyExchangeRatesEmail
+  file_name: currency_exchange_rates_email.py
+  run_after:
+  - exchange_rate_fetcher
+requirements: []
+variables:
+  - name: base_currency
+    value: 'USD'
+  - name: target_currencies
+    value: 'EUR,GBP,JPY,CAD,AUD,CHF,CNY,INR,ZAR,MXN'
