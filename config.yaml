@@ -5,7 +5,9 @@ nodes:
   name: ExchangeRateFetcher
   file_name: exchange_rate_fetcher.py
   starting_node: true
-  schedule: null
+  schedule:
+    cron: '30 09 * * *'  # Every day at 9:30 AM UTC
+    timezone: 'UTC'
 - key: currency_exchange_rates_email
   name: CurrencyExchangeRatesEmail
   file_name: currency_exchange_rates_email.py
